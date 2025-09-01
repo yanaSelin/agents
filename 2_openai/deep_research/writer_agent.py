@@ -1,5 +1,6 @@
 from pydantic import BaseModel, Field
 from agents import Agent
+from azure_model import azure_model
 
 INSTRUCTIONS = (
     "You are a senior researcher tasked with writing a cohesive report for a research query. "
@@ -22,6 +23,6 @@ class ReportData(BaseModel):
 writer_agent = Agent(
     name="WriterAgent",
     instructions=INSTRUCTIONS,
-    model="gpt-4o-mini",
+    model=azure_model,
     output_type=ReportData,
 )
