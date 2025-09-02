@@ -1,11 +1,9 @@
 from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
 
-
 @CrewBase
 class Debate():
     """Debate crew"""
-
 
     agents_config = 'config/agents.yaml'
     tasks_config = 'config/tasks.yaml'
@@ -14,14 +12,14 @@ class Debate():
     def debater(self) -> Agent:
         return Agent(
             config=self.agents_config['debater'],
-            verbose=True
+            verbose=True,
         )
 
     @agent
     def judge(self) -> Agent:
         return Agent(
             config=self.agents_config['judge'],
-            verbose=True
+            verbose=True,
         )
 
     @task
