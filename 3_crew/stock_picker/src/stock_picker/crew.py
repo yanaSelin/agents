@@ -1,3 +1,5 @@
+import os
+
 from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
 from crewai_tools import SerperDevTool
@@ -101,9 +103,13 @@ class StockPicker():
             short_term_memory = ShortTermMemory(
                 storage = RAGStorage(
                         embedder_config={
-                            "provider": "openai",
+                            "provider": "openai",  # Use openai provider for Azure
                             "config": {
-                                "model": 'text-embedding-3-small'
+                                "api_key": os.getenv("AZURE_OPENAI_API_KEY"),
+                                "api_base": os.getenv("AZURE_OPENAI_API_BASE"),
+                                "api_type": "azure",
+                                "api_version": os.getenv("AZURE_OPENAI_API_VERSION"),
+                                "model": "text-embedding-3-small-1",
                             }
                         },
                         type="short_term",
@@ -113,9 +119,13 @@ class StockPicker():
             entity_memory = EntityMemory(
                 storage=RAGStorage(
                     embedder_config={
-                        "provider": "openai",
+                        "provider": "openai",  # Use openai provider for Azure
                         "config": {
-                            "model": 'text-embedding-3-small'
+                            "api_key": os.getenv("AZURE_OPENAI_API_KEY"),
+                            "api_base": os.getenv("AZURE_OPENAI_API_BASE"),
+                            "api_type": "azure",
+                            "api_version": os.getenv("AZURE_OPENAI_API_VERSION"),
+                            "model": "text-embedding-3-small-1",
                         }
                     },
                     type="short_term",
