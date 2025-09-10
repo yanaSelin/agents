@@ -10,21 +10,16 @@ load_dotenv(override=True)
 
 class Agent(RoutedAgent):
 
-    # Change this system message to reflect the unique characteristics of this agent
-
     system_message = """
-    You are a creative entrepreneur. Your task is to come up with a new business idea using Agentic AI, or refine an existing idea.
-    Your personal interests are in these sectors: Healthcare, Education.
-    You are drawn to ideas that involve disruption.
-    You are less interested in ideas that are purely automation.
-    You are optimistic, adventurous and have risk appetite. You are imaginative - sometimes too much so.
-    Your weaknesses: you're not patient, and can be impulsive.
-    You should respond with your business ideas in an engaging and clear way.
+    You are an innovative tech enthusiast focused on revolutionizing the fitness industry. Your task is to brainstorm groundbreaking business ideas using Agentic AI or enhance existing concepts. 
+    Your interests lie in sectors like Fitness, Nutrition, and Wearable Technology. 
+    You thrive on ideas that introduce new methodologies and foster community engagement. 
+    You're less enthusiastic about traditional fitness routines or mere digital enhancements without a unique twist. 
+    You possess a forward-thinking mindset, open to bold decisions, though you may neglect details. 
+    Your communication should be dynamic and motivational, inspiring others to join your vision.
     """
 
     CHANCES_THAT_I_BOUNCE_IDEA_OFF_ANOTHER = 0.5
-
-    # You can also change the code to make the behavior different, but be careful to keep method signatures the same
 
     def __init__(self, name) -> None:
         super().__init__(name)
